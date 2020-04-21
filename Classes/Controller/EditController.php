@@ -15,6 +15,8 @@ use In2code\Femanager\Utility\UserUtility;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException;
+use TYPO3\CMS\Extbase\Annotation as Extbase;
+
 
 /**
  * Class EditController
@@ -58,9 +60,9 @@ class EditController extends AbstractController
 
     /**
      * @param User $user
-     * @validate $user In2code\Femanager\Domain\Validator\ServersideValidator
-     * @validate $user In2code\Femanager\Domain\Validator\PasswordValidator
-     * @validate $user In2code\Femanager\Domain\Validator\CaptchaValidator
+     * @Extbase\Validate("In2code\Femanager\Domain\Validator\ServersideValidator", param="user")
+     * @Extbase\Validate("In2code\Femanager\Domain\Validator\PasswordValidator", param="user")
+     * @Extbase\Validate("In2code\Femanager\Domain\Validator\CaptchaValidator", param="user")
      * @return void
      */
     public function updateAction(User $user)

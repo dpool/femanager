@@ -17,6 +17,7 @@ use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 
 /**
  * Class NewController
@@ -45,9 +46,9 @@ class NewController extends AbstractController
      * action create
      *
      * @param User $user
-     * @validate $user In2code\Femanager\Domain\Validator\ServersideValidator
-     * @validate $user In2code\Femanager\Domain\Validator\PasswordValidator
-     * @validate $user In2code\Femanager\Domain\Validator\CaptchaValidator
+     * @Extbase\Validate("In2code\Femanager\Domain\Validator\ServersideValidator", param="user")
+     * @Extbase\Validate("In2code\Femanager\Domain\Validator\PasswordValidator", param="user")
+     * @Extbase\Validate("In2code\Femanager\Domain\Validator\CaptchaValidator", param="user")
      * @return void
      */
     public function createAction(User $user)
