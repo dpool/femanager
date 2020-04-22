@@ -299,6 +299,8 @@ abstract class AbstractController extends ActionController
             $link = $this->uriBuilder->build();
             $this->redirectToUri(StringUtility::removeDoubleSlashesFromUri($link));
         }
+        $this->redirect('createStatus');
+
     }
 
     /**
