@@ -156,8 +156,8 @@ abstract class AbstractController extends ActionController
         $this->persistenceManager->persistAll();
         $this->signalSlotDispatcher->dispatch(__CLASS__, __FUNCTION__ . 'AfterPersist', [$user, $this]);
         LogUtility::log(Log::STATUS_PROFILEUPDATED, $user, ['existingUser' => $existingUser]);
-        $this->redirectByAction('edit');
         $this->addFlashMessage(LocalizationUtility::translate('update'));
+        $this->redirectByAction('edit', 'requestRedirect');
     }
 
     /**
@@ -298,6 +298,9 @@ abstract class AbstractController extends ActionController
             $this->uriBuilder->setLinkAccessRestrictedPages(true);
             $link = $this->uriBuilder->build();
             $this->redirectToUri(StringUtility::removeDoubleSlashesFromUri($link));
+        }
+        if($action === 'edit'){
+            $this->redirect('edit');
         }
         $this->redirect('createStatus');
 
