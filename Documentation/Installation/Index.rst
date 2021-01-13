@@ -2128,13 +2128,13 @@ Plain Text
     # Inlude JavaScript files
     #########################
     # add jQuery if it was turned on in the constants
-    [globalVar = LIT:0 < {$plugin.tx_femanager.settings.jQuery}]
+    [{$plugin.tx_femanager.settings.jQuery} == '1']
     page.includeJSFooterlibs.femanagerJQuery = //ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js
     page.includeJSFooterlibs.femanagerJQuery.external = 1
     [end]
 
     # add twitter bootstrap JS if it was turned on in the constants
-    [globalVar = LIT:0 < {$plugin.tx_femanager.settings.bootstrap}]
+    [{$plugin.tx_femanager.settings.bootstrap} == '1']
     page.includeJSFooterlibs.femanangerBootstrap = //maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js
     page.includeJSFooterlibs.femanangerBootstrap.external = 1
     [end]
@@ -2143,7 +2143,7 @@ Plain Text
     # Inlude CSS files
     #########################
     # add twitter bootstrap CSS if it was turned on in the constants
-    [globalVar = LIT:0 < {$plugin.tx_femanager.settings.bootstrapCSS}]
+    [{$plugin.tx_femanager.settings.bootstrapCSS} == '1']
     page.includeCSS.femanangerBootstrap = //maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
     page.includeCSS.femanangerBootstrap.external = 1
     [end]

@@ -26,7 +26,7 @@ class SendMailService
      * SignalSlot Dispatcher
      *
      * @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $signalSlotDispatcher;
 
@@ -147,8 +147,7 @@ class SendMailService
             ->setTo($receiver)
             ->setFrom($sender)
             ->setSubject($subject)
-            ->setCharset(FrontendUtility::getCharset())
-            ->setBody($this->getMailBody($template, $variables), 'text/html');
+            ->html($this->getMailBody($template, $variables), 'text/html');
     }
 
     /**
